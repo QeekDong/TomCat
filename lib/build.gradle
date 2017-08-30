@@ -19,7 +19,8 @@ android {
 }
 
 dependencies {
-
-    compile 'com.kailashdabhi:om-recorder:1.1.0'
-    compile 'com.cleveroad:audiovisualization:1.0.0'
+//    compile 'com.kailashdabhi:om-recorder:1.1.0'
+//    compile 'com.cleveroad:audiovisualization:1.0.0'
+    compile project(path: ':audiovisualization')
+    compile project(path: ':om-recorder')
 }

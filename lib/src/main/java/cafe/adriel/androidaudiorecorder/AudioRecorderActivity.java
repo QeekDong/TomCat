@@ -214,6 +214,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    //采集音频数据并加以可视化处理
     @Override
     public void onAudioChunkPulled(AudioChunk audioChunk) {
         float amplitude = isRecording ? (float) audioChunk.maxAmplitude() : 0f;
