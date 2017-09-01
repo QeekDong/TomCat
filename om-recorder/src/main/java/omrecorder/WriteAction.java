@@ -15,6 +15,8 @@
  */
 package omrecorder;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -42,6 +44,7 @@ public interface WriteAction {
 
     @Override public void execute(byte[] data, OutputStream outputStream) throws IOException {
       outputStream.write(data);
+      Log.d("tag", "outputStream.write(data) in Default of WriteAction");
     }
   }
 }

@@ -302,6 +302,7 @@ public class AudioRecorderActivity extends AppCompatActivity
                     new PullTransport.Default(Util.getMic(source, channel, sampleRate), AudioRecorderActivity.this),
                     new File(filePath));
         }
+        Log.d("tag", "ResumeRecording");
         recorder.resumeRecording();
 
         startTimer();

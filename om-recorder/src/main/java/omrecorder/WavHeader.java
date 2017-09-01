@@ -18,7 +18,7 @@ package omrecorder;
 import android.media.AudioFormat;
 
 /**
- * A  Header to be appended to the end of Wav audio file
+ * A  Header to be appended to the start of Wav audio file
  *
  * @author Kailash Dabhi (kailash09dabhi@gmail.com)
  * @date 26-07-2016

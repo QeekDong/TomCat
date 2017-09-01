@@ -1,5 +1,7 @@
 package omrecorder;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -27,6 +29,7 @@ abstract class AbstractRecorder implements Recorder {
       @Override public void run() {
         try {
           pullTransport.start(outputStream);
+          Log.d("tag", "pullTransport.start");
         } catch (IOException e) {
           new RuntimeException(e);
         }

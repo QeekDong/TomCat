@@ -15,6 +15,8 @@
  */
 package omrecorder;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,6 +31,7 @@ import java.io.RandomAccessFile;
  * @skype kailash.09
  */
 final class Wav extends AbstractRecorder {
+  private String TAG = "Class Wav";
   private final RandomAccessFile wavFile;
 
   public Wav(PullTransport pullTransport, File file) {
@@ -63,5 +66,6 @@ final class Wav extends AbstractRecorder {
     } catch (IOException e) {
       e.printStackTrace();
     }
+    Log.d(TAG, "writeWavHeader");
   }
 }

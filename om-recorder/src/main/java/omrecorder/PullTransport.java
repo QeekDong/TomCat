@@ -16,6 +16,8 @@
 package omrecorder;
 
 import android.media.AudioRecord;
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -28,6 +30,7 @@ import java.io.OutputStream;
  * @skype kailash.09
  */
 public interface PullTransport {
+
 
   /**
    * It starts to pull the {@code  AudioSource}  and transport it to
@@ -67,6 +70,7 @@ public interface PullTransport {
     }
 
     @Override public void start(OutputStream outputStream) throws IOException {
+        Log.d("tag", "AbstractPullTransport.start");
       startPoolingAndWriting(preparedSourceToBePulled(), audioRecordSource.minimumBufferSize(),
           outputStream);
     }
@@ -134,7 +138,7 @@ public interface PullTransport {
 
     @Override void startPoolingAndWriting(AudioRecord audioRecord, int minimumBufferSize,
         OutputStream outputStream) throws IOException {
-      while (audioRecordSource.isEnableToBePulled()) {
+        while (audioRecordSource.isEnableToBePulled()) {
         AudioChunk audioChunk = new AudioChunk.Bytes(new byte[minimumBufferSize]);
         if (AudioRecord.ERROR_INVALID_OPERATION != audioRecord.read(audioChunk.toBytes(), 0,
             minimumBufferSize)) {
@@ -220,6 +224,7 @@ public interface PullTransport {
               }
             } else {
               writeAction.execute(audioChunk.toBytes(), outputStream);
+              Log.d("Noise", "execute");
             }
           }
         }
